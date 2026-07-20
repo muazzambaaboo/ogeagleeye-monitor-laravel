@@ -1,0 +1,63 @@
+{
+    "name": "ogeagleeye/monitor-laravel",
+    "description": "OGEagleEye monitoring SDK for Laravel 9–13",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "OGEagleEye",
+            "email": "dev@ogeagleeye.local"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "illuminate/support": "^9.0|^10.0|^11.0|^12.0|^13.0",
+        "illuminate/console": "^9.0|^10.0|^11.0|^12.0|^13.0",
+        "illuminate/http": "^9.0|^10.0|^11.0|^12.0|^13.0",
+        "illuminate/contracts": "^9.0|^10.0|^11.0|^12.0|^13.0",
+        "ogeagleeye/monitor-php": "@dev"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^8.0|^9.0|^10.0|^11.0",
+        "pestphp/pest": "^2.0|^3.0|^4.0",
+        "pestphp/pest-plugin-laravel": "^2.0|^3.0|^4.0"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../ogeagleeye-monitor-php",
+            "options": {
+                "symlink": true,
+                "local_only_note": "LOCAL sibling path for dogfood. Remove this repository entry when ogeagleeye/monitor-php is on Packagist."
+            }
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "OGEagleEye\\Laravel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OGEagleEye\\Laravel\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "OGEagleEye\\Laravel\\OGEagleEyeServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "test": "pest"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
