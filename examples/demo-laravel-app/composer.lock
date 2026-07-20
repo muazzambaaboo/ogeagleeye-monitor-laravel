@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "101e5446bca419d3f5c4828832977760",
+    "content-hash": "0ebbadc2672f3a05b0781f1634177f3d",
     "packages": [
         {
             "name": "brick/math",
@@ -2547,15 +2547,15 @@
             "version": "dev-master",
             "dist": {
                 "type": "path",
-                "url": "../../packages/monitor-laravel",
-                "reference": "de402b695f7da2ac5e4aa2cebd2d0048cc9e3ae1"
+                "url": "../..",
+                "reference": "fafdfb79d04a40fe3651997e47e61e857784e8e5"
             },
             "require": {
                 "illuminate/console": "^9.0|^10.0|^11.0|^12.0|^13.0",
                 "illuminate/contracts": "^9.0|^10.0|^11.0|^12.0|^13.0",
                 "illuminate/http": "^9.0|^10.0|^11.0|^12.0|^13.0",
                 "illuminate/support": "^9.0|^10.0|^11.0|^12.0|^13.0",
-                "ogeagleeye/monitor-php": "dev-master",
+                "ogeagleeye/monitor-php": "@dev",
                 "php": ">=8.0"
             },
             "require-dev": {
@@ -2606,8 +2606,8 @@
             "version": "dev-master",
             "dist": {
                 "type": "path",
-                "url": "../../packages/monitor-php",
-                "reference": "0d3ff69f61a3bdab2e422ae1137c635c74c352cb"
+                "url": "../../../ogeagleeye-monitor-php",
+                "reference": "02abd89589738a14327afe03e542cd79f62f2d45"
             },
             "require": {
                 "ext-curl": "*",
