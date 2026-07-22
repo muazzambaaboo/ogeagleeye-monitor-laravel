@@ -12,14 +12,12 @@ Laravel SDK for OGEagleEye (Laravel 9–13). Ask your **system admin** for:
 
 ## Install
 
-Both this package and the core PHP SDK are private. Register both repos, then require:
-
 ```bash
-composer config repositories.ogeagleeye-monitor-php vcs https://github.com/muazzambaaboo/ogeagleeye-monitor-php.git
-composer config repositories.ogeagleeye-monitor-laravel vcs https://github.com/muazzambaaboo/ogeagleeye-monitor-laravel.git
-composer require ogeagleeye/monitor-php:dev-master ogeagleeye/monitor-laravel:dev-master
+composer require ogeagleeye/monitor-laravel
 php artisan vendor:publish --tag=OGEagleEye-config
 ```
+
+`ogeagleeye/monitor-php` is installed automatically as a dependency.
 
 ## Setup
 
