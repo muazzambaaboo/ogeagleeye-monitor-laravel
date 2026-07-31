@@ -4,10 +4,12 @@ namespace OGEagleEye\Laravel;
 
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Contracts\Http\Kernel as HttpKernel;
+use Illuminate\Log\Events\MessageLogged;
 use Illuminate\Support\ServiceProvider;
 use OGEagleEye\Laravel\Console\HeartbeatCommand;
 use OGEagleEye\Laravel\Console\ScanCommand;
 use OGEagleEye\Laravel\Jobs\FlushOGEagleEyeJob;
+use OGEagleEye\Laravel\Logging\LogCapture;
 use OGEagleEye\Laravel\Middleware\OGEagleEyeMiddleware;
 use OGEagleEye\Laravel\Support\RequestContext;
 use OGEagleEye\Monitor\OGEagleEye;
@@ -17,7 +19,7 @@ class OGEagleEyeServiceProvider extends ServiceProvider
 {
     public const SDK_NAME = 'monitor-laravel';
 
-    public const SDK_VERSION = '0.2.0';
+    public const SDK_VERSION = '0.3.0';
 
     public function register(): void
     {
@@ -64,6 +66,7 @@ class OGEagleEyeServiceProvider extends ServiceProvider
         ]);
 
         $this->registerExceptionCapture();
+        $this->registerLogCapture();
         $this->registerMiddleware();
         $this->registerHeartbeatSchedule();
 
@@ -97,6 +100,19 @@ class OGEagleEyeServiceProvider extends ServiceProvider
                 }
             });
         });
+    }
+
+    protected function registerLogCapture(): void
+    {
+        if (! config('ogeagleeye.capture_logs', true)) {
+            return;
+        }
+
+        if (! class_exists(MessageLogged::class)) {
+            return;
+        }
+
+        $this->app['events']->listen(MessageLogged::class, LogCapture::class);
     }
 
     protected function registerMiddleware(): void

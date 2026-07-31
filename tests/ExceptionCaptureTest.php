@@ -9,7 +9,7 @@ it('boots the service provider and reports sdk identity', function () {
     expect(OGEagleEye::getClient())->not->toBeNull();
     expect(OGEagleEye::getClient()->getSdkInfo())->toMatchArray([
         'name' => 'monitor-laravel',
-        'version' => '0.2.0',
+        'version' => '0.3.0',
     ]);
 
     OGEagleEye::captureMessage('ping', 'info');

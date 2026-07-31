@@ -43,6 +43,8 @@ abstract class TestCase extends Orchestra
         $app['config']->set('ogeagleeye.queue', false);
         $app['config']->set('ogeagleeye.slow_threshold_ms', 50);
         $app['config']->set('ogeagleeye.capture_4xx', false);
+        $app['config']->set('ogeagleeye.capture_logs', true);
+        $app['config']->set('ogeagleeye.log_level', 'info');
         $app['config']->set('ogeagleeye.ignore_exceptions', []);
         $app['config']->set('queue.default', 'sync');
     }

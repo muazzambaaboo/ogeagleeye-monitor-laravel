@@ -19,6 +19,8 @@ OGEAGLEEYE_RELEASE="${APP_VERSION}"
 # Optional:
 # OGEAGLEEYE_SLOW_THRESHOLD_MS=2000
 # OGEAGLEEYE_CAPTURE_4XX=false
+# OGEAGLEEYE_CAPTURE_LOGS=true
+# OGEAGLEEYE_LOG_LEVEL=info
 # OGEAGLEEYE_QUEUE=false
 # OGEAGLEEYE_HEARTBEAT_AUTO=false
 ```
@@ -26,8 +28,9 @@ OGEAGLEEYE_RELEASE="${APP_VERSION}"
 Auto-discovery registers `OGEagleEyeServiceProvider`. With `OGEAGLEEYE_KEY` + `OGEAGLEEYE_ENDPOINT` set, the SDK:
 
 1. Captures exceptions via the app `ExceptionHandler` `reportable` callback (respects Laravel `dontReport` and `config('ogeagleeye.ignore_exceptions')`).
-2. Registers global `OGEagleEyeMiddleware` — reports `http_failure` for status **≥ 500** (4xx opt-in), and requests slower than `slow_threshold_ms`.
-3. Flushes on middleware `terminate()` / app terminating (never before the response). Optional queued flush via `OGEAGLEEYE_QUEUE=true` when the default queue is not `sync`.
+2. Captures Laravel `Log::` / Monolog writes (default min level `info`) as `event_type=log` — disable with `OGEAGLEEYE_CAPTURE_LOGS=false`.
+3. Registers global `OGEagleEyeMiddleware` — reports `http_failure` for status **≥ 500** (4xx opt-in), and requests slower than `slow_threshold_ms`.
+4. Flushes on middleware `terminate()` / app terminating (never before the response). Optional queued flush via `OGEAGLEEYE_QUEUE=true` when the default queue is not `sync`.
 
 ## Heartbeat
 

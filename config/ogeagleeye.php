@@ -37,6 +37,20 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Laravel Log:: / Monolog capture → event_type=log
+    |--------------------------------------------------------------------------
+    |
+    | When enabled, Log::info / Log::error (and other levels at or above
+    | log_level) are forwarded to OGEagleEye. Set OGEAGLEEYE_CAPTURE_LOGS=false
+    | to disable. Minimum level: debug|info|notice|warning|error|critical|alert|emergency
+    |
+    */
+    'capture_logs' => (bool) env('OGEAGLEEYE_CAPTURE_LOGS', true),
+
+    'log_level' => env('OGEAGLEEYE_LOG_LEVEL', 'info'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Exception ignore list (FQCN strings). Laravel dontReport is also respected.
     |--------------------------------------------------------------------------
     */
