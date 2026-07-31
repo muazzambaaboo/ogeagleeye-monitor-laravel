@@ -19,7 +19,7 @@ class OGEagleEyeServiceProvider extends ServiceProvider
 {
     public const SDK_NAME = 'monitor-laravel';
 
-    public const SDK_VERSION = '0.3.0';
+    public const SDK_VERSION = '1.0.1';
 
     public function register(): void
     {

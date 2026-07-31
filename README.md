@@ -12,8 +12,10 @@ Laravel SDK for OGEagleEye (Laravel 9–13). Ask your **system admin** for:
 
 ## Install
 
+Prefer the **1.x** line (`1.0.1+`). Tag `0.3.0` is superseded — use `^1.0` so Composer resolves the log-capture release.
+
 ```bash
-composer require ogeagleeye/monitor-laravel
+composer require ogeagleeye/monitor-laravel:^1.0
 php artisan vendor:publish --tag=OGEagleEye-config
 ```
 
